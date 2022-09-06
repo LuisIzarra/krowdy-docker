@@ -1,7 +1,7 @@
 //To Build Image
 
-docker build . -t luisizarra/krowdy-docker
+docker build . -t luisizarra/backend:1.0
 
 //To Run Image
 
-docker run -p 49160:8080 -d luisizarra/krowdy-docker
+docker run -p 8085:8085 -d luisizarra/backend:1.0
