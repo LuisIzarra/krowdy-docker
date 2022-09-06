@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    platform: linux/x86_64
+    image: mysql:5.7
+    environment:
+      - MYSQL_USER=krowdyuser
+      - MYSQL_ROOT_PASSWORD=rootkrowdypassword
+      - MYSQL_DATABASE=krowdydb
+    volumes:
+      - db:/var/lib/mysql
+  app:
+    build: ./
+    ports:
+      - "8085:8085"
+    depends_on:
+      - mysqldb
+    environment:
+      - DB_HOST=mysqldb
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=krowdydb
+      - DB_PORT=3306
+
+volumes:
+  db:
