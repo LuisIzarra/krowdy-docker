@@ -6,7 +6,7 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_USER=krowdyuser
-      - MYSQL_ROOT_PASSWORD=rootkrowdypassword
+      - MYSQL_ROOT_PASSWORD=krowdypassword
       - MYSQL_DATABASE=krowdydb
     volumes:
       - db:/var/lib/mysql
