@@ -21,17 +21,6 @@ connection.connect(function (err) {
   connection.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table created");
-    var user = { nombre: "Juan" };
-    var query = connection.query(
-      "INSERT INTO usuarios SET ?",
-      user,
-      function (err, result) {
-        if (err) throw err;
-        console.log("error", err);
-        console.log("result", result);
-      }
-    );
-    console.log(query.sql);
   });
 });
 
@@ -43,6 +32,18 @@ app.get("/", (req, res) => {
 
 app.get("/registrar", (req, res) => {
   console.log("/registrar");
+  console.log("nombre:", req.query.Nombre);
+  var user = { nombre: req.query.Nombre };
+  var query = connection.query(
+    "INSERT INTO usuarios SET ?",
+    user,
+    function (err, result) {
+      if (err) throw err;
+      console.log("error", err);
+      console.log("result", result);
+    }
+  );
+  console.log(query.sql);
   res.send("ok");
 });
 
