@@ -17,7 +17,7 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
   console.log(">>>>>>>>>>>>>>>>>>>>> mysql connected");
   if (err) throw err;
-  var sql = "CREATE TABLE usuarios (nombre VARCHAR(255))";
+  var sql = "CREATE TABLE IF NOT EXISTS usuarios (nombre VARCHAR(255))";
   connection.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table created");
