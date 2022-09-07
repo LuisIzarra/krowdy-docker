@@ -5,7 +5,7 @@ var mysql = require("mysql");
 
 // Constants
 const PORT = 8085;
-const HOST = "0.0.0.0";
+const HOST = "localhost";
 
 var connection = mysql.createConnection({
   host: "mysqldb",
@@ -41,7 +41,10 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.get("/registrar", (req, res) => {});
+app.get("/registrar", (req, res) => {
+  console.log("/registrar");
+  res.send("ok");
+});
 
-app.listen(PORT, HOST);
+app.listen(PORT);
 console.log(`Running on http://${HOST}:${PORT}`);
